@@ -31,24 +31,43 @@ const Item = styled.button`
 
   color: black;
 
-  border: 0.1em solid #0d1b2a;
-
   cursor: pointer;
 
   &:hover {
     background-color: #778da9;
     color: white;
   }
+
+  &:nth-child(3n) {
+    border-right: none;
+  }
+  &:nth-child(3n + 1) {
+    border-left: none;
+  }
 `;
 
 const Bar = styled.span`
-  background-color: #e0e1dd;
-  font-size: 2rem;
+  background-color: red;
+
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 1%;
-  height: 10%;
+  top: 20%;
+  left: 22%;
+  bottom: 0;
+  right: 0;
+  width: 45em;
+  height: 12px;
+`;
+
+const VerticalBar = styled.span`
+  background-color: red;
+
+  position: absolute;
+  top: 5%;
+  left: 30%;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 35em;
 `;
 
 const winningCases = [
@@ -189,6 +208,29 @@ function App() {
       <AppWrapper>
         <MainComponent>
           <Bar />
+          <Bar
+            style={{
+              top: "50%",
+            }}
+          />
+          <Bar
+            style={{
+              top: "80%",
+            }}
+          />
+
+          <VerticalBar />
+
+          <VerticalBar
+            style={{
+              left: "50%",
+            }}
+          />
+          <VerticalBar
+            style={{
+              left: "70%",
+            }}
+          />
           {items.map((item, index) => (
             <Item
               onClick={() => !haveWinner && handleClickItem(index)}
